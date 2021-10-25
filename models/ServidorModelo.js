@@ -9,6 +9,8 @@ class ServidorModelo {
     constructor () {
         this.app = express()
         this.despertarBD()
+        this.enrutarPeticiones()
+
     }
     encenderServidor() {
         this.app.listen(process.env.PUERTO, () => {
@@ -22,7 +24,7 @@ class ServidorModelo {
         conectarBD()
     }
     llamarAuxliares() {
-
+        this.app.use(express.json())
     }
 
 
